@@ -1,3 +1,7 @@
+/**
+ * The WebServer class initializes a simple web server that handles client connections,
+ * processes requests, and sends back responses.
+ */
 package edu.escuelaing.arep.app.webserver;
 
 import java.io.BufferedReader;
@@ -15,6 +19,7 @@ public class WebServer {
 
     public static void main(String[] args) throws IOException {
 
+        // Set up server resources and components.
         ServerSocket serverInstance = null;
         ConcurrentHashMap<String, String> cache = new ConcurrentHashMap<>();
         MovieController movieController = new MovieController();
@@ -22,12 +27,13 @@ public class WebServer {
         try {
             serverInstance = new ServerSocket(16000);
         } catch (IOException error) {
-            System.err.println("Couldn't listen on port 160000");
+            System.err.println("Couldn't listen on port 16000");
             System.exit(1);
         }
 
         Socket clientConnection = null;
 
+        // Accept and handle incoming client connections.
         while (!(serverInstance.isClosed())) {
             try {
                 System.out.println("\nListening...");
@@ -49,6 +55,7 @@ public class WebServer {
 
             boolean isFirstLine = true;
 
+            // Process the client request.
             while ((inputLine = clientRequestReader.readLine()) != null) {
 
                 if (isFirstLine) {
@@ -63,30 +70,33 @@ public class WebServer {
                 }
             }
 
+            // Handle different types of resources and responses.
             if (resource.equals("movie")) {
                 if (cache.containsKey(movieName)) {
                     movieInformation = cache.get(movieName);
                 } else {
                     movieInformation = movieController.getMovieByName(movieName);
-                    cache.put(movieName, resource);
+                    cache.put(movieName, movieInformation);
                 }
                 clientResponseWriter.println("HTTP/1.1 200 OK");
                 clientResponseWriter.println("Content-Type: application/json");
-                clientResponseWriter.println("Content-Length: 343");
+                clientResponseWriter.println("Content-Length: " + movieInformation.length());
                 clientResponseWriter.println();
                 clientResponseWriter.println(movieInformation);
             } else if (resource.equals("home") || resource.equals("") || resource.equals(" ")) {
                 clientResponseWriter.println(movieSearchEngine.getHomePage());
             } else {
-                System.out.println("Nothing has been entered\n");
+                System.out.println("Invalid resource\n");
             }
 
+            // Close connections.
             clientResponseWriter.close();
             clientRequestReader.close();
             clientConnection.close();
 
         }
 
+        // Close the server instance.
         serverInstance.close();
     }
 }

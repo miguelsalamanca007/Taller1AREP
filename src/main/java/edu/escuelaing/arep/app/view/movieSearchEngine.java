@@ -1,7 +1,15 @@
 package edu.escuelaing.arep.app.view;
-
+/**
+* The movieSearchEngine class generates an HTML page for a simple movie search engine.
+* It provides a web interface to search for movie information using the provided movie name.
+*/
 public class movieSearchEngine {
 
+    /**
+    * Generates the HTML content for the movie search engine's home page.
+    *
+    * @return A string containing the HTML content for the movie search engine's home page.
+    */
     public static String getHomePage() {
         
         String html =  "HTTP/1.1 200 OK\r\n" +
