@@ -13,6 +13,37 @@ public class movieSearchEngine {
         "  <title>Movie Search Engine</title>\n" +
         "  <meta charset=\"UTF-8\">\n" +
         "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+        "  <style>\n" +
+        "    body {\n" +
+        "      font-family: Arial, sans-serif;\n" +
+        "      text-align: center;\n" +
+        "    }\n" +
+        "    h1 {\n" +
+        "      color: #333;\n" +
+        "    }\n" +
+        "    form {\n" +
+        "      margin-top: 20px;\n" +
+        "    }\n" +
+        "    input[type=\"text\"] {\n" +
+        "      width: 300px;\n" +
+        "      padding: 10px;\n" +
+        "      border: 1px solid #ccc;\n" +
+        "      border-radius: 5px;\n" +
+        "      font-size: 16px;\n" +
+        "    }\n" +
+        "    button {\n" +
+        "      padding: 10px 20px;\n" +
+        "      font-size: 16px;\n" +
+        "      background-color: #007bff;\n" +
+        "      color: #fff;\n" +
+        "      border: none;\n" +
+        "      border-radius: 5px;\n" +
+        "      cursor: pointer;\n" +
+        "    }\n" +
+        "    button:hover {\n" +
+        "      background-color: #0056b3;\n" +
+        "    }\n" +
+        "  </style>\n" +
         "</head>\n" +
         "<body>\n" +
         "  <h1>Movie Search Engine</h1>\n" +
