@@ -1,22 +1,10 @@
 package edu.escuelaing.arep.app.taller1;
 
 import static org.junit.Assert.assertEquals;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import org.junit.Test;
 
 import edu.escuelaing.arep.app.controller.MovieController;
-import edu.escuelaing.arep.app.factory.ServicesFactory;
-import edu.escuelaing.arep.app.service.Service;
-
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 
 public class MovieServiceTest{
 
